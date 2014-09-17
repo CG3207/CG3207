@@ -8,6 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<<<<<<< HEAD
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Dashe/Desktop/CG3207/Git/ALU/alu.vhd&quot; into library work</arg>
 </msg>
 
@@ -15,6 +16,9 @@
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Dashe/Desktop/CG3207/Git/ALU/uart.vhd&quot; into library work</arg>
+=======
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/jw/Dropbox/EE4/CG3207/LAB/lab2/ALU/alu.vhd&quot; into library work</arg>
+>>>>>>> origin/master
 </msg>
 
 </messages>
