@@ -42,45 +42,6 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="1139228562471541569" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-50893573330169593" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2392663549478326307" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918703" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-8369081886489020079" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1410918715" xil_pn:in_ck="-843283057565963231" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-1761629420783285490" xil_pn:start_ts="1410918703">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="adder.lso"/>
-      <outfile xil_pn:name="adder.ngc"/>
-      <outfile xil_pn:name="adder.ngr"/>
-      <outfile xil_pn:name="adder.prj"/>
-      <outfile xil_pn:name="adder.stx"/>
-      <outfile xil_pn:name="adder.syr"/>
-      <outfile xil_pn:name="adder.xst"/>
-      <outfile xil_pn:name="adder_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
-    </transform>
   </transforms>
 
 </generated_project>
