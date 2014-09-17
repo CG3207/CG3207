@@ -248,5 +248,3 @@ begin
 	C_out <= S_wider(width);
 end adder_arch;
 
-
---	RAYMOND IS WORKING HERE  
