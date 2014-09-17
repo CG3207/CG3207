@@ -1,4 +1,4 @@
-
+--change 1st line
 ---------------------------------------------------------------------------------
 -- Company: NUS
 -- Engineer: Rajesh Panicker
@@ -247,3 +247,6 @@ begin
 	S <= S_wider(width-1 downto 0);
 	C_out <= S_wider(width);
 end adder_arch;
+
+
+--	RAYMOND IS WORKING HERE
