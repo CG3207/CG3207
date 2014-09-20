@@ -41,12 +41,42 @@ entity ADD_SUB is
 end ADD_SUB;
 
 architecture ADD_SUB_ARCH of ADD_SUB is
-signal S_wider : std_logic_vector(31 downto 0);
+signal S_wider : std_logic_vector(32 downto 0);
 begin
 
-	S_wider <= ('0'& A) + ('0'& B) + C_in;
+--Perform OP
+process (A,B,C_in,Binv)
+begin
+
+	case Binv is
+	when '1' => 
+		S_wider <= ('0'& A) + ('0'& B) + C_in;
+	when others =>
+		S_wider <= ('0'& A) + ('0'& not B) + '1';
+	end case;
+	
 	S <= S_wider(31 downto 0);
 	C_out <= S_wider(32);
+
+end process;
+
+--case Binv is
+--	when '0' => 
+--		S_wider <= ('0'& A) + ('0'& B) + C_in;
+--		--S <= S_wider(31 downto 0);
+--		--C_out <= S_wider(32);
+--	when others =>
+--		S_wider <= ('0'& A) + ('0'& B) + C_in;
+--		--S <= S_wider(31 downto 0);
+--		--C_out <= S_wider(32);
+--end case;
+-- WITH Binv  SELECT
+--    C_out <= '0' WHEN '0',
+--                     '1' WHEN OTHERS;
+--
+--	S_wider <= ('0'& A) + ('0'& B) + C_in;
+--	S <= S_wider(31 downto 0);
+--	C_out <= S_wider(32);
 
 end ADD_SUB_ARCH;
 
