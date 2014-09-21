@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   15:31:55 09/20/2014
+-- Create Date:   22:39:19 09/20/2014
 -- Design Name:   
 -- Module Name:   Z:/git/CG3207/ALU/ADD_SUB_TEST.vhd
 -- Project Name:  ALU
@@ -27,7 +27,6 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.numeric_std.all;
  
 -- Uncomment the following library declaration if using
@@ -48,6 +47,7 @@ ARCHITECTURE behavior OF ADD_SUB_TEST IS
          Binv : IN  std_logic;
          C_in : IN  std_logic;
          S : OUT  std_logic_vector(31 downto 0);
+	   TEST : OUT  std_logic_vector(31 downto 0);
          C_out : OUT  std_logic
         );
     END COMPONENT;
@@ -61,6 +61,7 @@ ARCHITECTURE behavior OF ADD_SUB_TEST IS
 
  	--Outputs
    signal S : std_logic_vector(31 downto 0);
+   signal TEST: std_logic_vector(31 downto 0);
    signal C_out : std_logic;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
@@ -76,7 +77,8 @@ BEGIN
           Binv => Binv,
           C_in => C_in,
           S => S,
-          C_out => C_out
+          C_out => C_out,
+	    TEST => TEST
         );
 
    -- Clock process definitions
@@ -92,38 +94,20 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      --wait for <clock>_period*10;
-
-      -- insert stimulus here
-	A <= std_logic_vector(to_unsigned(50,32));
-	B <= std_logic_vector(to_unsigned(30,32));
-	C_in <= '0';
-	
-	wait for 100ns;
-	
-	A <= std_logic_vector(to_unsigned(50,32));
-	B <= std_logic_vector(to_unsigned(30,32));
-	C_in <= '0';
-	Binv <= '1';
-	
-	wait for 100ns;
-	
-	A <= std_logic_vector(to_unsigned(30,32));
-	B <= std_logic_vector(to_unsigned(50,32));
-	C_in <= '0';
-	Binv <= '0';
-	
-	wait for 100ns;
-	
-	A <= std_logic_vector(to_unsigned(30,32));
-	B <= std_logic_vector(to_unsigned(50,32));
-	C_in <= '0';
-	Binv <= '1';
-
-      wait;
+	wait for 100 ns;
+        a <= std_logic_vector(to_signed(50,a'length));
+        b <= std_logic_vector(to_signed(30,b'length));
+        wait for 100 ns;
+        binv <= '1';
+        wait for 100 ns;
+        binv <= '0';
+        a <= std_logic_vector(to_signed(30,a'length));
+        b <= std_logic_vector(to_signed(-50,b'length));
+        wait for 100 ns;
+        binv <= '1';
+        b <= std_logic_vector(to_signed(-50,b'length));
+        wait for 600 ns;
+        wait;
    end process;
 
 END;

@@ -20,6 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -36,6 +37,7 @@ entity ADD_SUB is
 	     Binv : in  STD_LOGIC;
 	     C_in: in  STD_LOGIC;
            S : out  STD_LOGIC_VECTOR (31 downto 0);
+	     TEST : out  STD_LOGIC_VECTOR (31 downto 0);
            C_out : out  STD_LOGIC
            );
 end ADD_SUB;
@@ -44,39 +46,27 @@ architecture ADD_SUB_ARCH of ADD_SUB is
 signal S_wider : std_logic_vector(32 downto 0);
 begin
 
---Perform OP
+--Perform OP (WORKS)
 process (A,B,C_in,Binv)
-begin
+        variable X,Y,Z: std_logic_vector (33 downto 0);
+    begin
+        X := A(31) & A & '1'; -- We had 1 here so if C_in was added, it would get carried over to Z(1)
+	  
+        if Binv = '0' then
+            Y := B(31) & B & C_in;
+        elsif Binv = '1' then
+            Y := not B(31) & not B & not C_in;
+        else 
+            Y := (others => 'X');
+        end if;
 
-	case Binv is
-	when '1' => 
-		S_wider <= ('0'& A) + ('0'& B) + C_in;
-	when others =>
-		S_wider <= ('0'& A) + ('0'& not B) + '1';
-	end case;
-	
-	S <= S_wider(31 downto 0);
-	C_out <= S_wider(32);
+        Z := std_logic_vector( unsigned(X) + unsigned(Y));
+
+        C_out <= Z(33);
+        S <= Z(32 downto 1); -- Ignore the last bit, it was only used for the carry
 
 end process;
 
---case Binv is
---	when '0' => 
---		S_wider <= ('0'& A) + ('0'& B) + C_in;
---		--S <= S_wider(31 downto 0);
---		--C_out <= S_wider(32);
---	when others =>
---		S_wider <= ('0'& A) + ('0'& B) + C_in;
---		--S <= S_wider(31 downto 0);
---		--C_out <= S_wider(32);
---end case;
--- WITH Binv  SELECT
---    C_out <= '0' WHEN '0',
---                     '1' WHEN OTHERS;
---
---	S_wider <= ('0'& A) + ('0'& B) + C_in;
---	S <= S_wider(31 downto 0);
---	C_out <= S_wider(32);
 
 end ADD_SUB_ARCH;
 
