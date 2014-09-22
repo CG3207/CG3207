@@ -42,7 +42,7 @@ begin
 process(enable,op1,op2)
 begin
 	if enable='1' then
-	 result1<= op1 XOR op2;
+	 result1<= op1 AND op2;
 	 else
 	 result1<= (others=>'0');
 	end if;
