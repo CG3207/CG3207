@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   23:03:34 09/22/2014
+-- Create Date:   18:38:28 09/23/2014
 -- Design Name:   
--- Module Name:   Z:/git/CG3207/ALU/CLA_ADD_SUB_TEST.vhd
+-- Module Name:   Z:/git/CG3207/ALU/FULL_ADD_SUB_TEST.vhd
 -- Project Name:  ALU
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: CLA_ADD_SUB
+-- VHDL Test Bench Created by ISE for module: FULL_ADD_SUB
 -- 
 -- Dependencies:
 -- 
@@ -27,43 +27,40 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use IEEE.numeric_std.all;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY CLA_ADD_SUB_TEST IS
-generic (N : integer := 8);
-END CLA_ADD_SUB_TEST;
+ENTITY FULL_ADD_SUB_TEST IS
+END FULL_ADD_SUB_TEST;
  
-ARCHITECTURE behavior OF CLA_ADD_SUB_TEST IS 
+ARCHITECTURE behavior OF FULL_ADD_SUB_TEST IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT CLA_ADD_SUB
+    COMPONENT FULL_ADD_SUB
     PORT(
-         A : IN  std_logic_vector(N-1 downto 0);
-         B : IN  std_logic_vector(N-1 downto 0);
+         A : IN  std_logic_vector(31 downto 0);
+         B : IN  std_logic_vector(31 downto 0);
          Binv : IN  std_logic;
          C_in : IN  std_logic;
-         S : OUT  std_logic_vector(N-1 downto 0);
-         TEST : OUT  std_logic_vector(N-1 downto 0);
+         S : OUT  std_logic_vector(31 downto 0);
+         TEST : OUT  std_logic_vector(31 downto 0);
          C_out : OUT  std_logic
         );
     END COMPONENT;
     
 
    --Inputs
-   signal A : std_logic_vector(N-1 downto 0) := (others => '0');
-   signal B : std_logic_vector(N-1 downto 0) := (others => '0');
+   signal A : std_logic_vector(31 downto 0) := (others => '0');
+   signal B : std_logic_vector(31 downto 0) := (others => '0');
    signal Binv : std_logic := '0';
    signal C_in : std_logic := '0';
 
  	--Outputs
-   signal S : std_logic_vector(N-1 downto 0);
-   signal TEST : std_logic_vector(N-1 downto 0);
+   signal S : std_logic_vector(31 downto 0);
+   signal TEST : std_logic_vector(31 downto 0);
    signal C_out : std_logic;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
@@ -73,7 +70,7 @@ ARCHITECTURE behavior OF CLA_ADD_SUB_TEST IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: CLA_ADD_SUB PORT MAP (
+   uut: FULL_ADD_SUB PORT MAP (
           A => A,
           B => B,
           Binv => Binv,
@@ -96,20 +93,14 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-	wait for 100 ns;
-        a <= std_logic_vector(to_signed(1,a'length));
-        b <= std_logic_vector(to_signed(0,b'length));
-        wait for 100 ns;
-        binv <= '1';
-        wait for 100 ns;
-        binv <= '0';
-        a <= std_logic_vector(to_signed(30,a'length));
-        b <= std_logic_vector(to_signed(-50,b'length));
-        wait for 100 ns;
-        binv <= '1';
-        b <= std_logic_vector(to_signed(-50,b'length));
-        wait for 600 ns;
-        wait;
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	
+
+      --wait for <clock>_period*10;
+
+      -- insert stimulus here 
+
+      wait;
    end process;
 
 END;
