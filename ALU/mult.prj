@@ -1,1 +1,3 @@
+vhdl work "shifter.vhd"
+vhdl work "ADD_SUB.vhd"
 vhdl work "mult.vhd"

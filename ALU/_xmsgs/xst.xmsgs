@@ -5,10 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">b_reg</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="error" file="HDLCompiler" num="1566" delta="new" >"C:\Users\jw\Dropbox\EE4\CG3207\LAB\lab2\ALU\mult.vhd" Line 69: Expression has <arg fmt="%d" index="1">64</arg> elements ; formal <arg fmt="%s" index="2">data_in</arg> expects <arg fmt="%d" index="3">32</arg>
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">a_reg</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="error" file="HDLCompiler" num="1566" delta="new" >"C:\Users\jw\Dropbox\EE4\CG3207\LAB\lab2\ALU\mult.vhd" Line 73: Expression has <arg fmt="%d" index="1">64</arg> elements ; formal <arg fmt="%s" index="2">data_out</arg> expects <arg fmt="%d" index="3">32</arg>
 </msg>
 
 </messages>

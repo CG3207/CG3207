@@ -1,11 +1,11 @@
 set -tmpdir "xst/projnav.tmp"
 set -xsthdpdir "xst"
 run
--ifn mult.prj
--ofn mult
+-ifn shifter.prj
+-ofn shifter
 -ofmt NGC
 -p xc7a100t-1-csg324
--top mult
+-top shifter
 -opt_mode Speed
 -opt_level 1
 -power NO

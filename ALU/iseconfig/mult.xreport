@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-09-23T12:46:49</DateModified>
+  <DateModified>2014-09-23T19:54:11</DateModified>
   <ModuleName>mult</ModuleName>
   <SummaryTimeStamp>2014-09-22T20:34:14</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/iseconfig/mult.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/jw/Dropbox/EE4/CG3207/LAB/lab2/ALU/iseconfig/mult.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/jw/Dropbox/EE4/CG3207/LAB/lab2/ALU\</ImplementationReportsDirectory>
   <DateInitialized>2014-09-22T20:34:18</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

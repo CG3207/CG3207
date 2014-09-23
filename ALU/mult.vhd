@@ -40,62 +40,123 @@ entity mult is
 end mult;
 
 
-architecture Behavioral of mult is
-signal a_reg :  std_logic_vector(31 downto 0);
-signal b_reg :  std_logic_vector(31 downto 0);
-signal c_reg :  std_logic_vector(63 downto 0);
+architecture mult_arch of mult is
+type state_type is (idle,load,doing,done);
+signal state,n_state:state_type;
+
+signal r64 :  std_logic_vector(63 downto 0);
+signal carry_reg :  std_logic;
+signal add_rslt :  std_logic_vector(31 downto 0);
+signal shift_rslt :  std_logic_vector(63 downto 0);
 signal busy : std_logic:= '0';
+signal shiftright : std_logic_vector (4 downto 0);
+signal mult_cnt : unsigned(4 downto 0);
 
 begin
---	 shifter1: entity work.shifter(combi_cascade)
---    port map(
---        data_in=> c_reg(63 downto 32),			-- : in	STD_LOGIC_VECTOR (31 downto 0);	--	data_in(31) is MSB
---		  sel=> "00001",           	--	: in	STD_LOGIC_VECTOR (4 downto 0);	--	sel(0) = '1' means shift by 1 bit
---		  left=> '0',           	--	: in	STD_LOGIC;								--	left = '1' means shift left
---		  arith=> '0',           --	: in	STD_LOGIC;								--	arith = '1' means arithmetic shift
---        data_out =>c_reg    --	: out	STD_LOGIC_VECTOR (31 downto 0));	--	data_out(31) is MSB
---    );
---	 shifter2: entity work.shifter(combi_cascade)
---    port map(
---        data_in=> c_reg(31 downto 0),			-- : in	STD_LOGIC_VECTOR (31 downto 0);	--	data_in(31) is MSB
---		  sel=> "00001",           	--	: in	STD_LOGIC_VECTOR (4 downto 0);	--	sel(0) = '1' means shift by 1 bit
---		  left=> '0',           	--	: in	STD_LOGIC;								--	left = '1' means shift left
---		  arith=> '0',           --	: in	STD_LOGIC;								--	arith = '1' means arithmetic shift
---        data_out =>c_reg    --	: out	STD_LOGIC_VECTOR (31 downto 0));	--	data_out(31) is MSB
---    );	 
+
+	 adder1: entity work.ADD_SUB(ADD_SUB_ARCH)
+    port map(
+        A=>op1						,
+		  B=>r64(63 downto 32)	, 
+		  Binv=>'0'					,			 	--'1' means a-b , '0' = a+b
+		  C_in=>'0'				 	,        	--carry in
+        S => add_rslt			,    			--sum
+        C_out=>carry_reg
+		  );	 
+		  
+	 shifter1: entity work.shifter(Combi_Cascade)
+    port map(
+		data_in=>r64						,--	data_in(31) is MSB(31 downto 0)
+		sel=>shiftright	, --	sel(0) = '1' means shift by 1 bit(4 downto 0)
+		left=>'0'					,			--	left = '1' means shift left
+      arith=>'0'				 	,        	--	arith = '1' means arithmetic shift
+		data_out => shift_rslt			    		--	data_out(31) is MSB(31 downto 0)
+		  );	 
+	--state transition
+	process(state,busy,op1,op2,enable,r64)
+	begin
+		
+		case state is
+		
+			when  idle=>
+				result1<=op1;
+				result2<=op2;
+				if enable='1' then
+					n_state<= load;
+				else
+					n_state<= idle;
+				end if;
+				
+			when	load=>
+				result1<=op1;
+				result2<=op2;
+				if busy='1' then
+					n_state<= doing;
+				else
+					n_state<= load;
+				end if;
+				
+			when	doing=>
+				result1<=op1;
+				result2<=op2;
+				if busy ='0' then
+					n_state<=done;
+				else
+					n_state<=doing;
+				end if;
+				
+			when	done=>	
+				result1<=r64(31 downto 0);
+				result2<=r64(63 downto 32);
+				n_state<=idle;
+		end case;				
+	end process;
+	
+process(state,op2,add_rslt)
+begin
+	case state is
+	
+		when load=>	
+			r64(31 downto 0)<=op2;
+			mult_cnt<=to_unsigned(31,5);
+			busy<='1';
+			
+			shiftright<="00000";
+
+		when doing=>
+		if (mult_cnt="00000")then
+				busy<='0';
+		else
+			if r64(0)='1' then
+				r64(63 downto 32)<=add_rslt;
+				
+				shiftright<="00001";
+				r64<=shift_rslt;
+				shiftright<="00000";
+				r64(63)<=carry_reg;
+				mult_cnt<=mult_cnt-1;	
+				
+			else
+				shiftright<="00001";
+				r64<=shift_rslt;
+				shiftright<="00000";
+
+			end if;
+
+		end if;
+		when done=>
+		
+		shiftright<="00000";
+		busy<='0';
+
+	end case;
+end process;
+
 	process(clk)
 	begin
--- load new arguments when rising, notbusy, and enabled
 		if rising_edge(clk) then
-			if busy='0' then
-				if enable='1' then
-					a_reg<=op1;
-					b_reg<=op2;
-				end if;
-			end if;		
+			state<=n_state;
 		end if;
-	
-	end process;
-	
-	--mult algorithm
-	process(a_reg,b_reg)
-	begin
-		c_reg(31 downto 0)<=b_reg;
-		busy<='1';
-		for I in 1 to 32 loop
-		if c_reg(0) ='1' then	--check b_0.
-			c_reg(63 downto 32) <= a_reg + c_reg(63 downto 32); --add op1 to high bits
-			c_reg<=std_logic_vector(unsigned(c_reg)/2);--shift c-reg
-
-		else
-			c_reg<=std_logic_vector(unsigned(c_reg)/2);--shift c-reg
-		end if;
-		end loop;
-		
-		result1<=c_reg(31 downto 0);
-		result2<=c_reg(63 downto 32);
-		busy<='0';
 	end process;
 
-
-end Behavioral;
+end mult_arch;
