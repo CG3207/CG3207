@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mul32c.xst" -ofn "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mul32c.syr" 

@@ -1,0 +1,12 @@
+EN mul32c NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mult.vhd sub00/vhpl06 1411386951
+EN mult NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mult.vhd sub00/vhpl00 1411453160
+AR mul32c circuits C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mult.vhd sub00/vhpl07 1411386952
+AR alu behavioral C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/alu.vhd sub00/vhpl03 1411389244
+AR shifter combi_cascade C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/shifter.vhd sub00/vhpl11 1411452045
+AR lab2 structural C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd sub00/vhpl05 1411389246
+EN lab2 NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd sub00/vhpl04 1411389245
+EN newmult NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/newmult.vhd sub00/vhpl08 1411392502
+AR newmult behavioral C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/newmult.vhd sub00/vhpl09 1411392503
+EN shifter NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/shifter.vhd sub00/vhpl10 1411452044
+EN alu NULL C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/alu.vhd sub00/vhpl02 1411389243
+AR mult behavioral C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/mult.vhd sub00/vhpl01 1411453161

@@ -1,0 +1,2 @@
+vhdl isim_temp "newmult.vhd"
+vhdl isim_temp "testnewmult.vhd"

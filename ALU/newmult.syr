@@ -1,0 +1,431 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: newmult.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "newmult.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "newmult"
+Output Format                      : NGC
+Target Device                      : xc3s400a-4-ft256
+
+---- Source Options
+Top Module Name                    : newmult
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/newmult.vhd" in Library work.
+Architecture behavioral of Entity newmult is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <newmult> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <newmult> in library <work> (Architecture <behavioral>).
+Entity <newmult> analyzed. Unit <newmult> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <newmult>.
+    Related source file is "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/newmult.vhd".
+    Found 32-bit register for signal <result1>.
+    Found 32-bit register for signal <result2>.
+    Found 32-bit register for signal <a>.
+    Found 32-bit register for signal <b>.
+    Found 64-bit register for signal <result_64>.
+    Found 32x32-bit multiplier for signal <result_64$mult0000> created at line 56.
+    Summary:
+	inferred 192 D-type flip-flop(s).
+	inferred   1 Multiplier(s).
+Unit <newmult> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 32x32-bit multiplier                                  : 1
+# Registers                                            : 5
+ 32-bit register                                       : 4
+ 64-bit register                                       : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <newmult>.
+	Found pipelined multiplier on signal <result_64_mult0000>:
+		- 2 pipeline level(s) found in a register connected to the multiplier macro output.
+		Pushing register(s) into the multiplier macro.
+
+		- 1 pipeline level(s) found in a register on signal <a>.
+		Pushing register(s) into the multiplier macro.
+
+		- 1 pipeline level(s) found in a register on signal <b>.
+		Pushing register(s) into the multiplier macro.
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_result_64_mult0000 by adding 1 register level(s).
+Unit <newmult> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 32x32-bit registered multiplier                       : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <newmult> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block newmult, actual ratio is 2.
+
+Final Macro Processing ...
+
+Processing Unit <newmult> :
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_63>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_62>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_61>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_60>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_59>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_58>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_57>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_56>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_55>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_54>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_53>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_52>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_51>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_50>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_49>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_48>.
+	Found 2-bit shift register for signal <Mmult_result_64_mult0000_47>.
+Unit <newmult> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 126
+ Flip-Flops                                            : 126
+# Shift Registers                                      : 17
+ 2-bit shift register                                  : 17
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : newmult.ngr
+Top Level Output File Name         : newmult
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 130
+
+Cell Usage :
+# BELS                             : 325
+#      GND                         : 1
+#      LUT1                        : 14
+#      LUT2                        : 94
+#      MUXCY                       : 106
+#      VCC                         : 1
+#      XORCY                       : 109
+# FlipFlops/Latches                : 143
+#      FDE                         : 143
+# Shift Registers                  : 17
+#      SRL16E                      : 17
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 129
+#      IBUF                        : 65
+#      OBUF                        : 64
+# MULTs                            : 4
+#      MULT18X18SIO                : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400aft256-4 
+
+ Number of Slices:                       75  out of   3584     2%  
+ Number of Slice Flip Flops:            143  out of   7168     1%  
+ Number of 4 input LUTs:                125  out of   7168     1%  
+    Number used as logic:               108
+    Number used as Shift registers:      17
+ Number of IOs:                         130
+ Number of bonded IOBs:                 130  out of    195    66%  
+ Number of MULT18X18SIOs:                 4  out of     20    20%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 164   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.783ns (Maximum Frequency: 102.218MHz)
+   Minimum input arrival time before clock: 2.740ns
+   Maximum output required time after clock: 5.531ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 9.783ns (frequency: 102.218MHz)
+  Total number of paths / destination ports: 25310 / 160
+-------------------------------------------------------------------------
+Delay:               9.783ns (Levels of Logic = 33)
+  Source:            Mmult_result_64_mult0000_submult_0 (MULT)
+  Destination:       Mmult_result_64_mult0000_submult_02_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Mmult_result_64_mult0000_submult_0 to Mmult_result_64_mult0000_submult_02_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     MULT18X18SIO:CLK->P17    1   4.962   0.500  Mmult_result_64_mult0000_submult_0 (Mmult_result_64_mult0000_submult_0_P_to_Adder_A_17)
+     LUT2:I1->O            1   0.643   0.000  Mmult_result_64_mult0000_submult_00_Madd_lut<17> (Mmult_result_64_mult0000_submult_00_Madd_lut<17>)
+     MUXCY:S->O            1   0.632   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<17> (Mmult_result_64_mult0000_submult_00_Madd_cy<17>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<18> (Mmult_result_64_mult0000_submult_00_Madd_cy<18>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<19> (Mmult_result_64_mult0000_submult_00_Madd_cy<19>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<20> (Mmult_result_64_mult0000_submult_00_Madd_cy<20>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<21> (Mmult_result_64_mult0000_submult_00_Madd_cy<21>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<22> (Mmult_result_64_mult0000_submult_00_Madd_cy<22>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<23> (Mmult_result_64_mult0000_submult_00_Madd_cy<23>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<24> (Mmult_result_64_mult0000_submult_00_Madd_cy<24>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<25> (Mmult_result_64_mult0000_submult_00_Madd_cy<25>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<26> (Mmult_result_64_mult0000_submult_00_Madd_cy<26>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<27> (Mmult_result_64_mult0000_submult_00_Madd_cy<27>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<28> (Mmult_result_64_mult0000_submult_00_Madd_cy<28>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<29> (Mmult_result_64_mult0000_submult_00_Madd_cy<29>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<30> (Mmult_result_64_mult0000_submult_00_Madd_cy<30>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<31> (Mmult_result_64_mult0000_submult_00_Madd_cy<31>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<32> (Mmult_result_64_mult0000_submult_00_Madd_cy<32>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<33> (Mmult_result_64_mult0000_submult_00_Madd_cy<33>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<34> (Mmult_result_64_mult0000_submult_00_Madd_cy<34>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<35> (Mmult_result_64_mult0000_submult_00_Madd_cy<35>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<36> (Mmult_result_64_mult0000_submult_00_Madd_cy<36>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<37> (Mmult_result_64_mult0000_submult_00_Madd_cy<37>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<38> (Mmult_result_64_mult0000_submult_00_Madd_cy<38>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<39> (Mmult_result_64_mult0000_submult_00_Madd_cy<39>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<40> (Mmult_result_64_mult0000_submult_00_Madd_cy<40>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<41> (Mmult_result_64_mult0000_submult_00_Madd_cy<41>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<42> (Mmult_result_64_mult0000_submult_00_Madd_cy<42>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<43> (Mmult_result_64_mult0000_submult_00_Madd_cy<43>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<44> (Mmult_result_64_mult0000_submult_00_Madd_cy<44>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<45> (Mmult_result_64_mult0000_submult_00_Madd_cy<45>)
+     MUXCY:CI->O           1   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<46> (Mmult_result_64_mult0000_submult_00_Madd_cy<46>)
+     MUXCY:CI->O           0   0.065   0.000  Mmult_result_64_mult0000_submult_00_Madd_cy<47> (Mmult_result_64_mult0000_submult_00_Madd_cy<47>)
+     XORCY:CI->O           1   0.844   0.000  Mmult_result_64_mult0000_submult_00_Madd_xor<48> (Mmult_result_64_mult0000_submult_00_Madd_48)
+     FDE:D                     0.252          Mmult_result_64_mult0000_submult_02_0
+    ----------------------------------------
+    Total                      9.783ns (9.283ns logic, 0.500ns route)
+                                       (94.9% logic, 5.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 256 / 256
+-------------------------------------------------------------------------
+Offset:              2.740ns (Levels of Logic = 1)
+  Source:            enable (PAD)
+  Destination:       Mshreg_Mmult_result_64_mult0000_61 (FF)
+  Destination Clock: clk rising
+
+  Data Path: enable to Mshreg_Mmult_result_64_mult0000_61
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           160   0.849   1.303  enable_IBUF (enable_IBUF)
+     SRL16E:CE                 0.588          Mshreg_Mmult_result_64_mult0000_61
+    ----------------------------------------
+    Total                      2.740ns (1.437ns logic, 1.303ns route)
+                                       (52.5% logic, 47.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 64 / 64
+-------------------------------------------------------------------------
+Offset:              5.531ns (Levels of Logic = 1)
+  Source:            Mmult_result_64_mult0000_32 (FF)
+  Destination:       result1<31> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Mmult_result_64_mult0000_32 to result1<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.591   0.420  Mmult_result_64_mult0000_32 (Mmult_result_64_mult0000_32)
+     OBUF:I->O                 4.520          result1_31_OBUF (result1<31>)
+    ----------------------------------------
+    Total                      5.531ns (5.111ns logic, 0.420ns route)
+                                       (92.4% logic, 7.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.00 secs
+ 
+--> 
+
+Total memory usage is 257280 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

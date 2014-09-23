@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/testnewmult_isim_beh.exe" -prj "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/testnewmult_beh.prj" "work.testnewmult" 

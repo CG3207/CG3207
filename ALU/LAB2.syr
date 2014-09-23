@@ -1,0 +1,446 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: LAB2.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "LAB2.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "LAB2"
+Output Format                      : NGC
+Target Device                      : xc3s400a-4-ft256
+
+---- Source Options
+Top Module Name                    : LAB2
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/alu.vhd" in Library work.
+Architecture behavioral of Entity alu is up to date.
+Compiling vhdl file "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" in Library work.
+Architecture structural of Entity lab2 is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <LAB2> in library <work> (architecture <structural>).
+
+Analyzing hierarchy for entity <alu> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <LAB2> in library <work> (Architecture <structural>).
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'UART_Interrupt' of component 'mcs'.
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'GPI1_Interrupt' of component 'mcs'.
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'GPI2_Interrupt' of component 'mcs'.
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'GPI3_Interrupt' of component 'mcs'.
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'GPI4_Interrupt' of component 'mcs'.
+WARNING:Xst:753 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Unconnected output port 'INTC_IRQ' of component 'mcs'.
+WARNING:Xst:2211 - "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd" line 98: Instantiating black box module <mcs>.
+Entity <LAB2> analyzed. Unit <LAB2> generated.
+
+Analyzing Entity <alu> in library <work> (Architecture <behavioral>).
+Entity <alu> analyzed. Unit <alu> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <alu>.
+    Related source file is "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/alu.vhd".
+    Found 32-bit register for signal <Debug>.
+    Found 32-bit register for signal <Result1>.
+    Found 32-bit register for signal <Result2>.
+    Summary:
+	inferred  96 D-type flip-flop(s).
+Unit <alu> synthesized.
+
+
+Synthesizing Unit <LAB2>.
+    Related source file is "C:/Users/jw/Dropbox/EE4/CG3207/LAB/LAB2_joey/LAB2.vhd".
+Unit <LAB2> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 3
+ 32-bit register                                       : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <mcs.ngc>.
+Loading core <mcs> for timing and area information for instance <mcs0>.
+INFO:Xst:2261 - The FF/Latch <Debug_4> in Unit <alu0> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_10> <Debug_16> <Debug_22> <Debug_28> 
+INFO:Xst:2261 - The FF/Latch <Debug_1> in Unit <alu0> is equivalent to the following 5 FFs/Latches, which will be removed : <Debug_7> <Debug_13> <Debug_19> <Debug_25> <Debug_31> 
+INFO:Xst:2261 - The FF/Latch <Debug_5> in Unit <alu0> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_11> <Debug_17> <Debug_23> <Debug_29> 
+INFO:Xst:2261 - The FF/Latch <Debug_2> in Unit <alu0> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_8> <Debug_14> <Debug_20> <Debug_26> 
+INFO:Xst:2261 - The FF/Latch <Debug_3> in Unit <alu0> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_9> <Debug_15> <Debug_21> <Debug_27> 
+INFO:Xst:2261 - The FF/Latch <Debug_0> in Unit <alu0> is equivalent to the following 5 FFs/Latches, which will be removed : <Debug_6> <Debug_12> <Debug_18> <Debug_24> <Debug_30> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 96
+ Flip-Flops                                            : 96
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <Debug_4> in Unit <alu> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_10> <Debug_16> <Debug_22> <Debug_28> 
+INFO:Xst:2261 - The FF/Latch <Debug_1> in Unit <alu> is equivalent to the following 5 FFs/Latches, which will be removed : <Debug_7> <Debug_13> <Debug_19> <Debug_25> <Debug_31> 
+INFO:Xst:2261 - The FF/Latch <Debug_5> in Unit <alu> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_11> <Debug_17> <Debug_23> <Debug_29> 
+INFO:Xst:2261 - The FF/Latch <Debug_2> in Unit <alu> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_8> <Debug_14> <Debug_20> <Debug_26> 
+INFO:Xst:2261 - The FF/Latch <Debug_3> in Unit <alu> is equivalent to the following 4 FFs/Latches, which will be removed : <Debug_9> <Debug_15> <Debug_21> <Debug_27> 
+INFO:Xst:2261 - The FF/Latch <Debug_0> in Unit <alu> is equivalent to the following 5 FFs/Latches, which will be removed : <Debug_6> <Debug_12> <Debug_18> <Debug_24> <Debug_30> 
+
+Optimizing unit <LAB2> ...
+
+Optimizing unit <alu> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block LAB2, actual ratio is 17.
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> in Unit <mcs0> is equivalent to the following 28 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+INFO:Xst:2260 - The FF/Latch <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[3].fdr_i> in Unit <mcs0> is equivalent to the following 28 FFs/Latches : <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[4].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[5].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[6].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[7].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[8].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[9].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[10].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[11].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[12].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[13].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[14].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[15].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[16].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[17].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[18].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[19].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[20].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[21].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[22].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[23].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[24].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[25].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[26].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[27].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[28].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[29].fdr_i>
+   <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[30].fdr_i> <U0/iomodule_0/IOModule_Core_I1/intr_ctrl_I1/cipr_rd_dff_all[31].fdr_i> 
+INFO:Xst:2260 - The FF/Latch <U0/dlmb/POR_FF_I> in Unit <mcs0> is equivalent to the following FF/Latch : <U0/ilmb/POR_FF_I> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 70
+ Flip-Flops                                            : 70
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : LAB2.ngr
+Top Level Output File Name         : LAB2
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 11
+
+Cell Usage :
+# BELS                             : 1161
+#      GND                         : 1
+#      INV                         : 11
+#      LUT1                        : 3
+#      LUT2                        : 71
+#      LUT2_D                      : 8
+#      LUT2_L                      : 3
+#      LUT3                        : 279
+#      LUT3_D                      : 2
+#      LUT3_L                      : 5
+#      LUT4                        : 419
+#      LUT4_D                      : 4
+#      LUT4_L                      : 42
+#      MULT_AND                    : 34
+#      MUXCY_L                     : 77
+#      MUXF5                       : 149
+#      MUXF6                       : 1
+#      VCC                         : 1
+#      XORCY                       : 51
+# FlipFlops/Latches                : 661
+#      FD                          : 90
+#      FDE                         : 77
+#      FDR                         : 238
+#      FDRE                        : 214
+#      FDRS                        : 2
+#      FDRSE                       : 12
+#      FDS                         : 8
+#      FDSE                        : 20
+# RAMS                             : 157
+#      RAM16X1D                    : 141
+#      RAMB16BWE                   : 16
+# Shift Registers                  : 50
+#      SRL16                       : 1
+#      SRL16E                      : 49
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 5
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400aft256-4 
+
+ Number of Slices:                      600  out of   3584    16%  
+ Number of Slice Flip Flops:            661  out of   7168     9%  
+ Number of 4 input LUTs:               1179  out of   7168    16%  
+    Number used as logic:               847
+    Number used as Shift registers:      50
+    Number used as RAMs:                282
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    195     5%  
+ Number of BRAMs:                        16  out of     20    80%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 868   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.395ns (Maximum Frequency: 96.196MHz)
+   Minimum input arrival time before clock: 1.548ns
+   Maximum output required time after clock: 5.531ns
+   Maximum combinational path delay: 5.816ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 10.395ns (frequency: 96.196MHz)
+  Total number of paths / destination ports: 112383 / 3599
+-------------------------------------------------------------------------
+Delay:               10.395ns (Levels of Logic = 5)
+  Source:            mcs0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[16].SRL16E_I/Use_unisim.MB_SRL16E_I1 (FF)
+  Destination:       mcs0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/Op2_DFF (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: mcs0/U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[16].SRL16E_I/Use_unisim.MB_SRL16E_I1 to mcs0/U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[26].Operand_Select_Bit_I/Op2_DFF
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     SRL16E:CLK->Q        83   3.529   1.421  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[16].SRL16E_I/Use_unisim.MB_SRL16E_I1 (U0/microblaze_I/MicroBlaze_Core_I/imm_Value<0>)
+     LUT4:I0->O            1   0.648   0.563  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Res_Forward2_LUT1 (U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/res_forward2_1)
+     LUT4:I0->O           38   0.648   1.267  U0/microblaze_I/MicroBlaze_Core_I/Area.Decode_I/Using_FPGA.Res_Forward2_LUT4 (U0/microblaze_I/MicroBlaze_Core_I/res_Forward2)
+     LUT4:I3->O            1   0.648   0.500  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_Reg_SW1 (N101)
+     LUT3:I1->O            1   0.643   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_Reg (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_Reg)
+     MUXF5:I0->O           1   0.276   0.000  U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/Using_LUT4_2.Op2_MUXF5 (U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/op2_I)
+     FDE:D                     0.252          U0/microblaze_I/MicroBlaze_Core_I/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[29].Operand_Select_Bit_I/Op2_DFF
+    ----------------------------------------
+    Total                     10.395ns (6.644ns logic, 3.751ns route)
+                                       (63.9% logic, 36.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              1.548ns (Levels of Logic = 2)
+  Source:            Reset (PAD)
+  Destination:       mcs0/U0/reset_vec_0 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: Reset to mcs0/U0/reset_vec_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.849   0.447  Reset_IBUF (D2_OBUF)
+     begin scope: 'mcs0'
+     FD:D                      0.252          U0/reset_vec_0
+    ----------------------------------------
+    Total                      1.548ns (1.101ns logic, 0.447ns route)
+                                       (71.1% logic, 28.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              5.531ns (Levels of Logic = 2)
+  Source:            mcs0/U0/iomodule_0/IOModule_Core_I1/GPO_I4/gpo_io_i_2 (FF)
+  Destination:       D3 (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: mcs0/U0/iomodule_0/IOModule_Core_I1/GPO_I4/gpo_io_i_2 to D3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.591   0.420  U0/iomodule_0/IOModule_Core_I1/GPO_I4/gpo_io_i_2 (GPO4<2>)
+     end scope: 'mcs0'
+     OBUF:I->O                 4.520          D3_OBUF (D3)
+    ----------------------------------------
+    Total                      5.531ns (5.111ns logic, 0.420ns route)
+                                       (92.4% logic, 7.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.816ns (Levels of Logic = 2)
+  Source:            Reset (PAD)
+  Destination:       D2 (PAD)
+
+  Data Path: Reset to D2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.849   0.447  Reset_IBUF (D2_OBUF)
+     OBUF:I->O                 4.520          D2_OBUF (D2)
+    ----------------------------------------
+    Total                      5.816ns (5.369ns logic, 0.447ns route)
+                                       (92.3% logic, 7.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.43 secs
+ 
+--> 
+
+Total memory usage is 212824 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
+
